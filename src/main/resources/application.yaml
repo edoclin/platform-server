@@ -1,0 +1,48 @@
+spring:
+  servlet:
+    multipart:
+      max-request-size: 512MB
+      max-file-size: 512MB
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: mpw:oEvyhBHD+N4RXP/Hs/aOOrQDrYIt30AnKAkzsQUcuPFnO3kNMeHjKgmrIOjPaAjp
+    username: mpw:cKotb6HmGcqTXh4h2gzD1g==
+    password: mpw:EjJOUP/XnvR8HS1h1JASfQ==
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      max-lifetime: 60000
+      connection-test-query: SELECT 1
+      auto-commit: true
+      idle-timeout: 30000
+      connection-timeout: 10000
+sa-token:
+  token-name: server
+  timeout: 86400
+  activity-timeout: 3600
+  token-style: tik
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: utf-8
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: true
+      logic-not-delete-value: false
+logging:
+  level:
+    com.toolgeo.server.mapper: debug
+init:
+  user:
+    username: server
+    password: server
+    role: ADMIN
+  qiniu:
+    access-key: 2Rik_A5LHe5hz5CTRVAN_Ucys9Fwpn8e8I_eKoBf
+    #    access-key: Gm9sQKFnSBsk_xo_kxrerkx4bO9tK4DKRZZ7q5u4
+    secret-key: a8CrDZeKsZzFp7LdAXghEuDtWNzQbRtSR3q4pIDe
+    #    secret-key: Cil660b4gEYO2O2r61yKFaQO2s4fBrFmmikysfM8
+    bucket: nilcode-store
