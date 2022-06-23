@@ -12,8 +12,8 @@ create table t_theme
     showed        bool                    default false not null,
     theme_index   int                     default -1    not null,
     deleted       bool                    default false not null,
-    updated_time  timestamp                             not null,
-    created_time  timestamp                             not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );
 
 drop table if exists t_INDEX_carousel;
@@ -26,8 +26,8 @@ create table t_INDEX_carousel
     showed               bool         default false not null,
     carousel_index       int          default -1    not null,
     deleted              bool         default false not null,
-    updated_time         timestamp                  not null,
-    created_time         timestamp                  not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );
 
 drop table if exists t_train_course;
@@ -40,8 +40,8 @@ create table t_train_course
     showed                    bool         default false not null,
     train_course_index        int          default -1    not null,
     deleted                   bool         default false not null,
-    updated_time              timestamp                  not null,
-    created_time              timestamp                  not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );
 
 drop table if exists t_base;
@@ -51,8 +51,8 @@ create table t_base
     base_name    varchar(128) default ''    not null,
     base_index   int          default -1    not null,
     deleted      bool         default false not null,
-    updated_time timestamp                  not null,
-    created_time timestamp                  not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );
 
 
@@ -63,8 +63,8 @@ create table t_role
     role_name    varchar(128) default ''    not null,
     role_key    varchar(128) default ''    not null,
     deleted      bool         default false not null,
-    updated_time timestamp                  not null,
-    created_time timestamp                  not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );
 
 drop table if exists t_user_role;
@@ -74,8 +74,8 @@ create table t_user_role
     user_id      varchar(64)  default ''    not null,
     role_id      varchar(64)  default ''    not null,
     deleted      bool         default false not null,
-    updated_time timestamp                  not null,
-    created_time timestamp                  not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );
 
 
@@ -92,6 +92,6 @@ create table t_user
     mobile varchar(16) default '' not null ,
     base_id varchar(64) default '' not null ,
     deleted      bool         default false not null,
-    updated_time timestamp                  not null,
-    created_time timestamp                  not null
+    updated_time timestamp                  not null default now(),
+    created_time timestamp                  not null default now()
 );

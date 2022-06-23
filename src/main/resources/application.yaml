@@ -22,6 +22,8 @@ sa-token:
   timeout: 86400
   activity-timeout: 3600
   token-style: tik
+  public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNOohVUZhvWn1AuZOe5J0ttfY0XYIqAEmGgCO4LhCWvUhS7zweDQSarr/6OTB2K6XlvIkRIIYqqaL6+gcuVSuma0hEI89zBu3Z9x2rGTFCHdUuquC0eEMW8fbKsODWOTrTN4emr9vqtaIhiy9UNrkwxq6xAi5uIjQkec9YDwciLQIDAQAB
+  private-key: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAI06iFVRmG9afUC5k57knS219jRdgioASYaAI7guEJa9SFLvPB4NBJquv/o5MHYrpeW8iREghiqpovr6By5VK6ZrSEQjz3MG7dn3HasZMUId1S6q4LR4Qxbx9sqw4NY5OtM3h6av2+q1oiGLL1Q2uTDGrrECLm4iNCR5z1gPByItAgMBAAECgYAJ1n45PUQaW6oWeGbrXl8BmGeUacAft2Hny+TRF2ph6cEQP+iG6l67/LjUUCgLT0qQ6JN+vS6Daco34/Ncm6O86tPopb9UvTzvGDN6rMxaFuvlNr/9q3Y+FjgWgrfWIDoS3s4xRiGQyhVwOVoxQzF1cPshuQav247kHpLD+j4PeQJBAJ5OcB6nCWkSC24fbs1IlHOeFubwONo9RDGDlZb2kyG/b2UAsfj3FgBKbEf0AnF8xUvaqSw0rj+dbFIQEvj+nLkCQQDkYh3VzZWlcnpQ1D3hDhK9ffqjz3ydgkt1ARgmIli7wkOn2ZfZSpW6FQ8JpYVBIxgVnxHSj13ESzs8As9wSP8VAkA+QCPwuciGi7T48d1VViQiLtlcqLwCfbMSMWcifQWwcKHyOsrBVxBMvvdDeB152RGQWYTKwFCA7XuJ7Y44YY7pAkBW4EP9KsE8OHny+Wm4jMPwNVX8rlb3C7NshMgM6Y/bjKBz3z/2NnsSWCRqRP6VsqXcw6/h6wt+OigEQgVq7zmpAkA1EpWtmo0oVi+w5aqykFQ8i/F7xZTtAeCYEC3oQ2A6THfx0OQHPlKlsSpDzlBcer+zRIth9KV6ps8O8gmyJ54Y
 server:
   port: 8080
   servlet:
@@ -40,9 +42,9 @@ init:
     username: server
     password: server
     role: ADMIN
-  qiniu:
-    access-key: 2Rik_A5LHe5hz5CTRVAN_Ucys9Fwpn8e8I_eKoBf
-    #    access-key: Gm9sQKFnSBsk_xo_kxrerkx4bO9tK4DKRZZ7q5u4
-    secret-key: a8CrDZeKsZzFp7LdAXghEuDtWNzQbRtSR3q4pIDe
-    #    secret-key: Cil660b4gEYO2O2r61yKFaQO2s4fBrFmmikysfM8
-    bucket: nilcode-store
+tencent:
+  cos:
+    region: ap-nanjing
+    bucket: server-1304812488
+    secret-id: AKID3vYuznLdeQwBAsTosfBRP6XiuqVt1sSl
+    secret-key: 5tQggOq0tWtzoNeeNq2xbz6wVnoY2FBq

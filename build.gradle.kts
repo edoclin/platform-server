@@ -16,8 +16,9 @@ repositories {
 }
 
 dependencies {
+    implementation("com.qcloud:cos_api:5.6.93")
+    implementation("com.qcloud:cos-sts_api:3.1.1")
     implementation("cn.hutool:hutool-all:5.8.3")
-    implementation("com.qiniu:qiniu-java-sdk:7.11.0")
     implementation("cn.dev33:sa-token-spring-boot-starter:1.30.0")
     implementation("cn.dev33:sa-token-jwt:1.30.0")
     implementation("com.baomidou:mybatis-plus-boot-starter:3.5.2")

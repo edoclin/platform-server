@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor
+import com.toolgeo.server.entity.User
+import com.toolgeo.server.entity.UserRole
 import org.apache.ibatis.reflection.MetaObject
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -33,12 +35,15 @@ class MybatisPlusConfig : MetaObjectHandler, IdentifierGenerator {
      * @param metaObject 元对象
      */
     override fun updateFill(metaObject: MetaObject?) {
-        this.strictInsertFill(
+        metaObject?.setValue("updatedTime", null)
+        this.strictUpdateFill(
             metaObject, "updatedTime",
             { LocalDateTime.now() },
             LocalDateTime::class.java
         )
     }
+
+
 
     /**
      * 生成Id
@@ -51,7 +56,12 @@ class MybatisPlusConfig : MetaObjectHandler, IdentifierGenerator {
     }
 
     override fun nextUUID(entity: Any): String {
-        TODO("Not yet implemented")
+        val prefix = when (entity) {
+            is User -> "U"
+            is UserRole -> "UR"
+            else -> "NONE"
+        }
+        return prefix + IdUtil.getSnowflakeNextIdStr()
     }
 
     @Bean
