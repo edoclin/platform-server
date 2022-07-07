@@ -1,24 +1,16 @@
 package com.toolgeo.server.controller
 
 import cn.hutool.core.date.DateUtil
-import cn.hutool.json.JSONUtil
-import com.qcloud.cos.ClientConfig
-import com.qcloud.cos.Headers
-import com.qcloud.cos.auth.BasicSessionCredentials
-import com.qcloud.cos.auth.COSCredentials
-import com.qcloud.cos.auth.COSSigner
-import com.qcloud.cos.demo.BucketRefererDemo.bucketName
-import com.qcloud.cos.http.HttpMethodName
-import com.qcloud.cos.region.Region
 import com.tencent.cloud.CosStsClient
 import com.tencent.cloud.Response
 import com.toolgeo.server.util.result.ResultBean
 import com.toolgeo.server.util.result.ResultUtil
 import com.toolgeo.server.view.COSConfig
 import com.toolgeo.server.view.COSTmpToken
-import com.toolgeo.server.view.SignParam
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 
@@ -81,23 +73,6 @@ class COSController {
             e.printStackTrace()
             return ResultUtil.error()
         }
-    }
-
-    @PostMapping("sign")
-    fun getSign(@RequestBody signParam: SignParam): ResultBean? {
-        val cred: COSCredentials = BasicSessionCredentials(signParam.tmpSecretId, signParam.tmpSecretKey, signParam.sessionToken)
-        val clientConfig = ClientConfig(Region(region))
-        val signer = COSSigner()
-        val expirationDate = Date(System.currentTimeMillis() + 30L * 60L * 1000L)
-        val params: MutableMap<String, String> = HashMap()
-//        params["param1"] = "value1"
-        val headers: MutableMap<String, String> = HashMap()
-        headers[Headers.HOST] = clientConfig.endpointBuilder.buildGeneralApiEndpoint(bucket)
-//        headers["header1"] = "value1"
-        // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
-        val method = HttpMethodName.PUT
-        val sign = signer.buildAuthorizationStr(method, signParam.key, headers, params, cred, expirationDate, true)
-        return ResultUtil.ok(sign)
     }
 
     @GetMapping("/config")

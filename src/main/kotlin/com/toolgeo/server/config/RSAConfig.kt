@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class RSAConfig {
-    @Value("\${sa-token.public-key}")
+    @Value("\${init.user.public-key}")
     lateinit var publicKey: String
 
-    @Value("\${sa-token.private-key}")
+    @Value("\${init.user.private-key}")
     lateinit var privateKey: String
 
     @Bean

@@ -1,6 +1,7 @@
 package com.toolgeo.server
 
 import cn.dev33.satoken.secure.SaSecureUtil
+import cn.hutool.db.nosql.redis.RedisDS
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
@@ -15,17 +16,17 @@ class ServerApplicationTests {
         var rsaGenerateKeyPair = SaSecureUtil.rsaGenerateKeyPair()
 // 定义私钥和公钥
         // 定义私钥和公钥
-        val privateKey = rsaGenerateKeyPair.get("private")
-        val publicKey = rsaGenerateKeyPair.get("public")
-
-
-        val text = "Sa-Token 一个轻量级java权限认证框架"
-
-        val ciphertext = SaSecureUtil.rsaEncryptByPublic(publicKey, text)
-        println("公钥加密后：$ciphertext")
-
-
-        val text2 = SaSecureUtil.rsaDecryptByPrivate(privateKey, ciphertext)
-        println("私钥解密后：$text2")
+//        val privateKey = rsaGenerateKeyPair.get("private")
+//        val publicKey = rsaGenerateKeyPair.get("public")
+//
+//
+//        val text = "Sa-Token 一个轻量级java权限认证框架"
+//
+//        val ciphertext = SaSecureUtil.rsaEncryptByPublic(publicKey, text)
+//        println("公钥加密后：$ciphertext")
+//
+//
+//        val text2 = SaSecureUtil.rsaDecryptByPrivate(privateKey, ciphertext)
+//        println("私钥解密后：$text2")
     }
 }

@@ -1,11 +1,6 @@
 package com.toolgeo.server.entity
 
-import com.baomidou.mybatisplus.annotation.FieldFill
-import com.baomidou.mybatisplus.annotation.IdType
-import com.baomidou.mybatisplus.annotation.TableField
-import com.baomidou.mybatisplus.annotation.TableId
-import com.baomidou.mybatisplus.annotation.TableLogic
-import com.baomidou.mybatisplus.annotation.TableName
+import com.baomidou.mybatisplus.annotation.*
 import java.io.Serializable
 import java.time.LocalDateTime
 
@@ -36,11 +31,14 @@ class User : Serializable {
     var idNumber: String? = null
 
     var mobile: String? = null
+    var avatarUrl: String? = null
+    var nickName: String? = null
 
-    var baseId: String? = null
 
     @TableLogic
     var deleted: Boolean? = null
+
+    var audited: Boolean? = null
 
     @TableField(fill = FieldFill.UPDATE)
     var updatedTime: LocalDateTime? = null
@@ -58,7 +56,6 @@ class User : Serializable {
         ", male=" + male +
         ", idNumber=" + idNumber +
         ", mobile=" + mobile +
-        ", baseId=" + baseId +
         ", deleted=" + deleted +
         ", updatedTime=" + updatedTime +
         ", createdTime=" + createdTime +

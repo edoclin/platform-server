@@ -6,8 +6,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor
-import com.toolgeo.server.entity.User
-import com.toolgeo.server.entity.UserRole
+import com.toolgeo.server.entity.*
 import org.apache.ibatis.reflection.MetaObject
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -59,6 +58,9 @@ class MybatisPlusConfig : MetaObjectHandler, IdentifierGenerator {
         val prefix = when (entity) {
             is User -> "U"
             is UserRole -> "UR"
+            is IndexClass -> "IC"
+            is TrainCourse -> "TC"
+            is Base -> "BA"
             else -> "NONE"
         }
         return prefix + IdUtil.getSnowflakeNextIdStr()

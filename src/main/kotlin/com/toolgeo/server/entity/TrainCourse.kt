@@ -20,9 +20,13 @@ class TrainCourse : Serializable {
 
     var trainCourseName: String? = null
 
+    var classId: String? = null
+
     var trainCourseVideo: String? = null
 
     var trainCourseIntroduction: String? = null
+    var trainCourseDesc: String? = null
+    var trainCourseCover: String? = null
 
     var showed: Boolean? = null
 
